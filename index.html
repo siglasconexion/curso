@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <div id="division">
+   </div>
+</body>
+
+
+<script>
+    fetch('http://localhost/cursoyinn/backend.php')
+  .then(response => response.json())
+  .then(data => {
+    //console.log(data)
+    var algo = document.getElementById('division');
+    //algo.innerHTML='  '
+    var resultado = data.filter(element=>element.codigo_cliente=="LETRAS001111")
+    var resultado2 = data.map(element=>element.codigo_cliente=="LETRAS001111")
+    var resultado3 = data.map(element=>element.id_cliente)
+    var resultado4 = data.map(element=>element)
+    console.log("resultadofilter",resultado)
+    console.log("resultadomap",resultado2)
+    console.log("resultadomap2",resultado3)
+    console.log("resultadomap3",resultado4)
+    
+    data.forEach(element => {
+      algo.innerHTML+= element.id_cliente +' '+ element.nombre_cliente +'<br>' ;
+      
+    });
+    console.log(data)
+    });
+</script>
+</html>
